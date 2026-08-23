@@ -153,3 +153,12 @@ func TestWordWrapString(t *testing.T) {
 		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
 	}
 }
+
+
+func TestTaskReflow006Boundary(t *testing.T) {
+	actual := String("foo bar", 3)
+	expected := "foo\nbar"
+	if actual != expected {
+		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
+	}
+}
