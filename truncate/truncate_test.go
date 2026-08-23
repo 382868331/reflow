@@ -185,3 +185,17 @@ type fakeWriter struct{}
 func (fakeWriter) Write(_ []byte) (int, error) {
 	return 0, fakeErr
 }
+
+
+func TestTaskReflow007Boundary(t *testing.T) {
+	t.Parallel()
+
+	f := &Writer{
+		width:      2,
+		ansiWriter: &ansi.Writer{Forward: fakeWriter{}},
+	}
+
+	if _, err := f.Write([]byte("foo")); err != fakeErr {
+		t.Error(err)
+	}
+}
