@@ -53,7 +53,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 }
 
 func (w *Writer) writeRune(r rune) (int, error) {
-	if w.runeBuf != nil {
+	if w.runeBuf == nil {
 		w.runeBuf = make([]byte, utf8.UTFMax)
 	}
 	n := utf8.EncodeRune(w.runeBuf, r)

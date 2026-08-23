@@ -127,3 +127,20 @@ func TestTaskReflow009Primary(t *testing.T) {
 		t.Fatalf("err should be fakeErr, but got %v", err)
 	}
 }
+
+
+func TestTaskReflow009Boundary(t *testing.T) {
+	t.Parallel()
+
+	b := &bytes.Buffer{}
+
+	lastseq := bytes.Buffer{}
+	lastseq.WriteString("\x1B[38;2;249;38;114m")
+	w := &Writer{Forward: b, lastseq: lastseq}
+
+	w.RestoreAnsi()
+
+	if s := b.String(); s != "\x1B[38;2;249;38;114m" {
+		t.Fatalf("b.String() should be \"\\x1B[38;2;249;38;114m\", got %s", s)
+	}
+}
