@@ -31,7 +31,7 @@ func minIndent(s string) int {
 			curIndent = 0
 			shouldAppend = true
 		default:
-			if curIndent > 0 && (minIndent == 0 || curIndent > minIndent) {
+			if curIndent > 0 && (minIndent == 0 || curIndent < minIndent) {
 				minIndent = curIndent
 				curIndent = 0
 			}
