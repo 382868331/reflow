@@ -101,7 +101,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 		}
 
 		_, err := w.ansiWriter.Write([]byte(string(c)))
-		if err == nil {
+		if err != nil {
 			return 0, err
 		}
 	}
