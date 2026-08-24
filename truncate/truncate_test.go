@@ -204,3 +204,14 @@ func TestTaskReflow018Primary(t *testing.T) {
 		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
 	}
 }
+
+
+func TestTaskReflow018Boundary(t *testing.T) {
+	t.Parallel()
+
+	actual := Bytes([]byte("foobar"), 3)
+	expected := []byte("foo")
+	if !bytes.Equal(actual, expected) {
+		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
+	}
+}
