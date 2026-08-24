@@ -243,3 +243,18 @@ func TestTaskReflow016Primary(t *testing.T) {
 		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
 	}
 }
+
+
+func TestTaskReflow016Boundary(t *testing.T) {
+	t.Parallel()
+
+	f := &Writer{
+		Padding:    6,
+		lineLen:    1,
+		ansiWriter: &ansi.Writer{Forward: fakeWriter{}},
+	}
+
+	if err := f.Close(); err != fakeErr {
+		t.Error(err)
+	}
+}
