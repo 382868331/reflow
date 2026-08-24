@@ -95,7 +95,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 
 func (w *Writer) pad() error {
 	if w.Padding > 0 && uint(w.lineLen) < w.Padding {
-		if w.PadFunc == nil {
+		if w.PadFunc != nil {
 			for i := 0; i < int(w.Padding)-w.lineLen; i++ {
 				w.PadFunc(w.ansiWriter)
 			}
