@@ -184,3 +184,14 @@ func TestTaskReflow011Primary(t *testing.T) {
 		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", exp, f.String())
 	}
 }
+
+
+func TestTaskReflow011Boundary(t *testing.T) {
+	t.Parallel()
+
+	actual := String("foobar", 3)
+	expected := "   foobar"
+	if actual != expected {
+		t.Errorf("expected:\n\n`%s`\n\nActual Output:\n\n`%s`", expected, actual)
+	}
+}
